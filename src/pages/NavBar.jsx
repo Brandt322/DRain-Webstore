@@ -12,13 +12,28 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import Switch from "@mui/material/Switch";
+import {ColorModeContext} from "../theme/Index";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Products"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const colorMode = React.useContext(ColorModeContext);
+  const [isSwitchOn, setSwitchState] = React.useState(
+    localStorage.getItem("switchState") === "true"
+  );
+
+  React.useEffect(() => {
+    localStorage.setItem("switchState", isSwitchOn);
+  }, [isSwitchOn]);
+
+  const handleChangeTheme = () => {
+    setSwitchState(!isSwitchOn);
+    colorMode.toggleColorMode();
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -125,6 +140,7 @@ function NavBar() {
             ))}
           </Box>
 
+          <Switch checked={isSwitchOn} onChange={handleChangeTheme} />
           <Box sx={{flexGrow: 0}}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
@@ -159,4 +175,5 @@ function NavBar() {
     </AppBar>
   );
 }
+
 export default NavBar;

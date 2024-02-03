@@ -18,7 +18,10 @@ export default function Sidebar() {
               <ListItemIcon>
                 <InboxIcon />
               </ListItemIcon>
-              <ListItemText primary="Inbox" />
+              <ListItemText
+                primary="Inbox"
+                sx={{color: (theme) => theme.palette.text.primary}}
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -26,7 +29,10 @@ export default function Sidebar() {
               <ListItemIcon>
                 <DraftsIcon />
               </ListItemIcon>
-              <ListItemText primary="Drafts" />
+              <ListItemText
+                primary="Miau"
+                sx={{color: (theme) => theme.palette.text.primary}}
+              />
             </ListItemButton>
           </ListItem>
         </List>
@@ -36,12 +42,18 @@ export default function Sidebar() {
         <List>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemText primary="Trash" />
+              <ListItemText
+                primary="Trash"
+                sx={{color: (theme) => theme.palette.text.primary}}
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#simple-list">
-              <ListItemText primary="Spam" />
+              <ListItemText
+                primary="Spam"
+                sx={{color: (theme) => theme.palette.text.primary}}
+              />
             </ListItemButton>
           </ListItem>
         </List>
