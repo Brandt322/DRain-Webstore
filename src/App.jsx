@@ -3,7 +3,6 @@ import Grid from "@mui/material/Grid";
 import NavBar from "./pages/NavBar";
 import Sidebar from "./pages/Sidebar";
 import MainContent from "./pages/MainContent";
-
 function App() {
   return (
     <Box>
